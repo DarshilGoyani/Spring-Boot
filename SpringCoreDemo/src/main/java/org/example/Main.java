@@ -1,11 +1,15 @@
 package org.example;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
 public class Main {
-    static void main() {
-        PaymentService paymentService = new PaymentService();
-        OrderService order = new OrderService(paymentService);
+    public static void main(String[] args) {
+        ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+
+        OrderService order = context.getBean(OrderService.class);
         order.placeOrder();
     }
 }
+
+
