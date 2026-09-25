@@ -1,9 +1,15 @@
 package org.example;
 
+import org.example.simple.A;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class Main {
     static void main() {
-        ApllicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+        ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+
+        OrderService order = context.getBean(OrderService.class);
+        order.placeOrder();
+//        A a = new A();
     }
 }
