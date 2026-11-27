@@ -17,6 +17,7 @@ public class StudentService {
         System.out.println("inside student service");
 
         Student studentResp = studentRepository.saveStudent(studentReq);
+        System.out.println("exiting student service");
         return studentResp;
     }
 }
